@@ -2,6 +2,7 @@
 #define ROCKSTATUS_H
 
 #include <QMainWindow>
+#include <udpconfig.h>
 
 namespace Ui {
 class RockStatus;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::RockStatus *ui;
+    UdpConfig *myConfig;
 };
 
 #endif // ROCKSTATUS_H

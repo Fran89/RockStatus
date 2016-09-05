@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network xml printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,8 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        rockstatus.cpp
+        rockstatus.cpp \
+    udpconfig.cpp
 
-HEADERS  += rockstatus.h
+HEADERS  += rockstatus.h \
+    udpconfig.h
 
-FORMS    += rockstatus.ui
+FORMS    += rockstatus.ui \
+    udpconfig.ui
