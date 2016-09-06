@@ -26,5 +26,12 @@ void msgProcessor::run(){
                  << QDateTime::fromTime_t((time_t) myTrace->trh2.starttime).toString("yyyy/MM/dd HH:mm:ss")
                  << QDateTime::fromTime_t((time_t) myTrace->trh2.endtime).toString("yyyy/MM/dd HH:mm:ss")
                  << myTrace->trh2.datatype;
+
+
+        char *tracedata;
+        int test;
+        tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+        memcpy(&test,tracedata,4);
+        qDebug() << test;
     }
 }
