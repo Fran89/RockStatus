@@ -10,14 +10,19 @@
 #include <swap.h>
 #include <include/ew_packet.h>
 #include <include/trace_buf.h>
+#include <include/TableDef.h>
 
 class msgProcessor : public QThread
 {
+    Q_OBJECT
 public:
     msgProcessor(QByteArray myData);
     void run();
     PACKET packet;
     QByteArray data;
+
+signals:
+    void dataOut(QString sta, QString net,dataType dt, qint32 value, QDateTime time);
 };
 
 #endif // MSGPROCESSOR_H

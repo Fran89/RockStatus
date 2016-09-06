@@ -22,16 +22,82 @@ void msgProcessor::run(){
            qDebug() << "Error making local";
            return;
         }
-        qDebug() << myTrace->trh2.net << myTrace->trh2.sta << myTrace->trh2.chan
-                 << QDateTime::fromTime_t((time_t) myTrace->trh2.starttime).toString("yyyy/MM/dd HH:mm:ss")
-                 << QDateTime::fromTime_t((time_t) myTrace->trh2.endtime).toString("yyyy/MM/dd HH:mm:ss")
-                 << myTrace->trh2.datatype;
+        QString sta(myTrace->trh2.sta);
+        QString net(myTrace->trh2.net);
+        QString chan(myTrace->trh2.chan);
+        if(chan == "deg" ){
+            char *tracedata;
+            qint32 val;
+            tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+            memcpy(&val,tracedata,sizeof(qint32));
+            emit dataOut(sta, net, Temperature, val, QDateTime::fromTime_t((time_t) myTrace->trh2.starttime));
+            return;
+        }
+        if(chan == "hum" ){
+            char *tracedata;
+            qint32 val;
+            tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+            memcpy(&val,tracedata,sizeof(qint32));
+            emit dataOut(sta, net, Humidity, val, QDateTime::fromTime_t((time_t) myTrace->trh2.starttime));
+            return;
+        }
+        if(chan == "cpu" ){
+            char *tracedata;
+            qint32 val;
+            tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+            memcpy(&val,tracedata,sizeof(qint32));
+            emit dataOut(sta, net, CPU, val, QDateTime::fromTime_t((time_t) myTrace->trh2.starttime));
+            return;
+        }
+        if(chan == "dsk" ){
+            char *tracedata;
+            qint32 val;
+            tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+            memcpy(&val,tracedata,sizeof(qint32));
+            emit dataOut(sta, net, Disk, val, QDateTime::fromTime_t((time_t) myTrace->trh2.starttime));
+            return;
+        }
+        if(chan == "vvb" ){
+            char *tracedata;
+            qint32 val;
+            tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+            memcpy(&val,tracedata,sizeof(qint32));
+            emit dataOut(sta, net, VoltageB, val, QDateTime::fromTime_t((time_t) myTrace->trh2.starttime));
+            return;
+        }
+        if(chan == "lcq" ){
+            char *tracedata;
+            qint32 val;
+            tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+            memcpy(&val,tracedata,sizeof(qint32));
+            emit dataOut(sta, net, ClockQuality, val, QDateTime::fromTime_t((time_t) myTrace->trh2.starttime));
+            return;
+        }
+        if(chan == "lce" ){
+            char *tracedata;
+            qint32 val;
+            tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+            memcpy(&val,tracedata,sizeof(qint32));
+            emit dataOut(sta, net, ClockPhase, val, QDateTime::fromTime_t((time_t) myTrace->trh2.starttime));
+            return;
+        }
+        if(chan == "vep" ){
+            char *tracedata;
+            qint32 val;
+            tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+            memcpy(&val,tracedata,sizeof(qint32));
+            emit dataOut(sta, net, VoltageS, val, QDateTime::fromTime_t((time_t) myTrace->trh2.starttime));
+            return;
+        }
+        if(chan == "vec" ){
+            char *tracedata;
+            qint32 val;
+            tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
+            memcpy(&val,tracedata,sizeof(qint32));
+            emit dataOut(sta, net, CurrentS, val, QDateTime::fromTime_t((time_t) myTrace->trh2.starttime));
+            return;
+        }
 
-
-        char *tracedata;
-        int test;
-        tracedata = (char*) myTrace + sizeof(TRACE2_HEADER);
-        memcpy(&test,tracedata,4);
-        qDebug() << test;
+        return;
     }
 }
