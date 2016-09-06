@@ -14,10 +14,19 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         rockstatus.cpp \
-    udpconfig.cpp
+    udpconfig.cpp \
+    udpclient.cpp \
+    msgprocessor.cpp \
+    swap.cpp
 
 HEADERS  += rockstatus.h \
-    udpconfig.h
+    udpconfig.h \
+    udpclient.h \
+    msgprocessor.h \
+    include/trace_buf.h \
+    include/TableDef.h \
+    include/ew_packet.h \
+    swap.h
 
 FORMS    += rockstatus.ui \
     udpconfig.ui
