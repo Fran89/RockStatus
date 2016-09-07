@@ -76,9 +76,9 @@ QVariant MetadataTable::headerData(int section, Qt::Orientation orientation, int
         case Tsta:
             return tr("Station");
         case Tvol:
-            return tr("Voltage");
+            return tr("Voltage (V)");
         case Ttem:
-            return tr("Temperature");
+            return tr("Temperature (C)");
         case Ttim:
             return tr("Time");
         case Ttcq:
