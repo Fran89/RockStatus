@@ -3,8 +3,9 @@
 
 #define Tnet 0
 #define Tsta 1
-#define Ttim 3
-#define Ttcq 4
+#define Ttim 2
+#define Ttcq 3
+#define Ttph 4
 #define Tvol 5
 #define Ttem 6
 #define Thum 7

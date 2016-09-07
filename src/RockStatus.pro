@@ -17,7 +17,9 @@ SOURCES += main.cpp\
     udpconfig.cpp \
     udpclient.cpp \
     msgprocessor.cpp \
-    swap.cpp
+    swap.cpp \
+    stninfo.cpp \
+    metadatatable.cpp
 
 HEADERS  += rockstatus.h \
     udpconfig.h \
@@ -26,7 +28,9 @@ HEADERS  += rockstatus.h \
     include/trace_buf.h \
     include/TableDef.h \
     include/ew_packet.h \
-    swap.h
+    swap.h \
+    stninfo.h \
+    metadatatable.h
 
 FORMS    += rockstatus.ui \
     udpconfig.ui

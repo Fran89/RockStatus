@@ -4,6 +4,7 @@ UdpClient::UdpClient(QObject *parent):
     QUdpSocket(parent)
 {
     connect(this,SIGNAL(readyRead()),this,SLOT(proccessData()));
+    debug = false;
 }
 
 // Pass pending datagram to EW Message Manager for proccessing
@@ -20,7 +21,18 @@ void UdpClient::proccessData(){
         //qDebug() << sizeof(data);
         msgProcessor *proc = new msgProcessor(data);
         connect(proc,SIGNAL(finished()),proc,SLOT(deleteLater()));
+        connect(proc,SIGNAL(dataOut(QString,QString,dataType,qint32,QDateTime)),this,SLOT(retreiveData(QString,QString,dataType,qint32,QDateTime)));
         proc->run();
         data.clear();
     }
+}
+
+void UdpClient::setDebug(bool dbg){
+    debug = dbg;
+}
+
+void UdpClient::retreiveData(QString sta, QString net, dataType dt, qint32 value, QDateTime time){
+    // re-emit basically... to lazy to do it another way
+    //qDebug() << sta << dt << value;
+    emit dataReceived(sta, net, dt, value, time);
 }
