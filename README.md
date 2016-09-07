@@ -38,7 +38,7 @@ In K2Status:
 ####Log File:
 
 * Coming Soon!
-* 
+
 =============
 If anyone is interested in this proyect or would like to help, contact me!
 
