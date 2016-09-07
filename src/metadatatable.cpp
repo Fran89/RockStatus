@@ -84,11 +84,11 @@ QVariant MetadataTable::headerData(int section, Qt::Orientation orientation, int
         case Ttcq:
             return tr("Time Quality");
         case Ttph:
-            return tr("Time Phase");
+            return tr("TXCO Drift");
         case Tdsk:
-            return tr("Disk Usage");
+            return tr("Disk Usage (%)");
         case Tcpu:
-            return tr("CPU Usage");
+            return tr("CPU Usage (%)");
         case Thum:
             return tr("Humidity");
         default:
