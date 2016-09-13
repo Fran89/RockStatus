@@ -7,10 +7,12 @@
 #define Ttcq 3
 #define Ttph 4
 #define Tvol 5
-#define Ttem 6
-#define Thum 7
-#define Tcpu 8
-#define Tdsk 9
+#define Tvos 6
+#define Tcur 7
+#define Ttem 8
+#define Thum 9
+#define Tcpu 10
+#define Tdsk 11
 
 enum dataType {
     ClockQuality,
@@ -24,6 +26,6 @@ enum dataType {
     Disk
 };
 
-#define Ncol 10
+#define Ncol 12
 
 #endif // TABLEDEF_H

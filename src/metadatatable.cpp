@@ -42,6 +42,10 @@ QVariant MetadataTable::data(const QModelIndex &index, int role) const
                     return currentSta->stnname;
                 case Tvol:
                     return currentSta->vvb;
+                case Tvos:
+                    return currentSta->vep;
+                case Tcur:
+                    return currentSta->vec;
                 case Ttem:
                     return currentSta->deg;
                 case Ttim:
@@ -76,7 +80,11 @@ QVariant MetadataTable::headerData(int section, Qt::Orientation orientation, int
         case Tsta:
             return tr("Station");
         case Tvol:
-            return tr("Voltage (V)");
+            return tr("Voltage Batt(V)");
+        case Tvos:
+            return tr("Voltage Syst(V)");
+        case Tcur:
+            return tr("Current Syst(A)");
         case Ttem:
             return tr("Temperature (C)");
         case Ttim:
