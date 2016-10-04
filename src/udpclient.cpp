@@ -15,7 +15,7 @@ void UdpClient::proccessData(){
         QByteArray data;
         data.resize(this->pendingDatagramSize());
 
-        // Get the Packet put the data in an Array
+        // Get the Packet put the data in an Arrayl
         this->readDatagram(data.data(),data.size());
 
         //qDebug() << sizeof(data);
