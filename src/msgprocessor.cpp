@@ -6,6 +6,11 @@ msgProcessor::msgProcessor(QByteArray myData):
     memcpy(&packet,data,data.size());
 }
 
+msgProcessor::~msgProcessor(){
+    data.clear();
+    delete &packet;
+}
+
 void msgProcessor::run(){
     // If the Packet is Complete
     if (packet.lastOfMsg && packet.fragNum == 0 ) {
