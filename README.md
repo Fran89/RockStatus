@@ -29,10 +29,14 @@ In K2Status:
 
 =============
 ####To Do:
-1. Work out various bugs.
-2. Test using multiple stations.
-3. Add the ability to graph data.
-4. Control graph time span (currently all is presented)
+1. Color Code the values
+2. Add detector for different rock istruments (Granite, Etna2, etc).
+3. Work on bugs, currently none found.
+4. Add logging.
+5. Add persistence.
+6. ~~Test using multiple stations.~~
+7. Add the ability to graph data.
+8. Control graph time span (currently all is presented).
 
 =============
 ####Log File:
