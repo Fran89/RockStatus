@@ -17,8 +17,6 @@ class msgProcessor : public QThread
     Q_OBJECT
 public:
     msgProcessor(QByteArray myData);
-    ~msgProcessor();
-
     void run();
     PACKET *packet;
     QByteArray data;
