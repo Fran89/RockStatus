@@ -20,7 +20,7 @@ public:
     ~msgProcessor();
 
     void run();
-    PACKET packet;
+    PACKET *packet;
     QByteArray data;
 
 signals:

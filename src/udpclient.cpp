@@ -22,7 +22,7 @@ void UdpClient::proccessData(){
         msgProcessor *proc = new msgProcessor(data);
         connect(proc,SIGNAL(finished()),proc,SLOT(deleteLater()));
         connect(proc,SIGNAL(dataOut(QString,QString,dataType,qint32,QDateTime)),this,SLOT(retreiveData(QString,QString,dataType,qint32,QDateTime)));
-        proc->run();
+        proc->start();
         data.clear();
     }
 }
