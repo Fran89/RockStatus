@@ -11,11 +11,6 @@ msgProcessor::~msgProcessor(){
     delete &packet;
 }
 
-msgProcessor::~msgProcessor(){
-    data.clear();
-    delete &packet;
-}
-
 void msgProcessor::run(){
     // If the Packet is Complete
     if (packet.lastOfMsg && packet.fragNum == 0 ) {
