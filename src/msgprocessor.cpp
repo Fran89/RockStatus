@@ -3,13 +3,12 @@
 msgProcessor::msgProcessor(QByteArray myData):
     data(myData)
 {
-    packet = new PACKET;
-    memcpy(packet,data,data.size());
+    memcpy(&packet,data,data.size());
 }
 
 msgProcessor::~msgProcessor(){
     data.clear();
-    delete packet;
+    delete &packet;
 }
 
 msgProcessor::~msgProcessor(){
@@ -19,11 +18,11 @@ msgProcessor::~msgProcessor(){
 
 void msgProcessor::run(){
     // If the Packet is Complete
-    if (packet->lastOfMsg && packet->fragNum == 0 ) {
+    if (packet.lastOfMsg && packet.fragNum == 0 ) {
 
         // Put data in new tracebuff struct
         TracePacket *myTrace = new TracePacket;
-        memcpy(myTrace,packet->text,sizeof(packet->text));
+        memcpy(myTrace,packet.text,sizeof(packet.text));
 
         if(!TRACE2_HEADER_VERSION_IS_VALID(&myTrace->trh2)){
             qDebug() << "Exit: header not good";
