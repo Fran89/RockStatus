@@ -19,7 +19,7 @@ public:
     msgProcessor(QByteArray myData);
     ~msgProcessor();
 
-    void run();
+    void run() Q_DECL_OVERRIDE;
     PACKET packet;
     QByteArray data;
 

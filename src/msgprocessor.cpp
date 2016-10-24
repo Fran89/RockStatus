@@ -8,10 +8,9 @@ msgProcessor::msgProcessor(QByteArray myData):
 
 msgProcessor::~msgProcessor(){
     data.clear();
-    delete &packet;
 }
 
-void msgProcessor::run(){
+void msgProcessor::run() {
     // If the Packet is Complete
     if (packet.lastOfMsg && packet.fragNum == 0 ) {
 

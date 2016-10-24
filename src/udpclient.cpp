@@ -19,10 +19,10 @@ void UdpClient::proccessData(){
         this->readDatagram(data.data(),data.size());
 
         //qDebug() << sizeof(data);
-        msgProcessor *proc = new msgProcessor(data);
-        connect(proc,SIGNAL(finished()),proc,SLOT(deleteLater()));
-        connect(proc,SIGNAL(dataOut(QString,QString,dataType,qint32,QDateTime)),this,SLOT(retreiveData(QString,QString,dataType,qint32,QDateTime)));
-        proc->run();
+        msgProcessor proc(data);
+        connect(&proc,SIGNAL(finished()),&proc,SLOT(deleteLater()));
+        connect(&proc,SIGNAL(dataOut(QString,QString,dataType,qint32,QDateTime)),this,SLOT(retreiveData(QString,QString,dataType,qint32,QDateTime)));
+        proc.run();
         data.clear();
     }
 }
